@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parentContactItem"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_72dp"
+    android:background="?attr/backgroundColor"
+    android:paddingStart="@dimen/_16dp"
+    android:paddingLeft="@dimen/_16dp"
+    android:paddingEnd="@dimen/_16dp"
+    android:paddingRight="@dimen/_16dp">
+
+
+    <TextView
+        android:id="@+id/txtUserImageNameContactItem"
+        android:layout_width="@dimen/_54dp"
+        android:layout_height="@dimen/_54dp"
+        android:layout_centerVertical="true"
+
+        android:background="@drawable/round_back"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgProfileContactItem"
+        android:layout_width="@dimen/_54dp"
+        android:layout_height="@dimen/_54dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imgStatusOnlineContactItem"
+        android:layout_width="@dimen/_12dp"
+        android:layout_height="@dimen/_12dp"
+        android:layout_marginStart="@dimen/_43dp"
+        android:layout_marginLeft="@dimen/_43dp"
+        android:background="@drawable/round_back_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/txtUserImageNameContactItem"
+        app:layout_constraintStart_toStartOf="@+id/txtUserImageNameContactItem" />
+
+
+    <TextView
+        android:id="@+id/txtUserFamilyContactItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginLeft="@dimen/_16dp"
+        android:layout_marginEnd="@dimen/_48dp"
+        android:layout_marginRight="@dimen/_48dp"
+        android:gravity="left"
+        android:maxWidth="@dimen/_200dp"
+        android:singleLine="true"
+        android:textColor="?attr/myTextColor"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/txtLastMsgDate"
+        app:layout_constraintStart_toEndOf="@+id/txtUserImageNameContactItem"
+        app:layout_constraintTop_toTopOf="@+id/txtUserImageNameContactItem" />
+
+    <TextView
+        android:id="@+id/txtLast_mOrPhone_nContactItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_2dp"
+        android:gravity="left"
+        android:singleLine="true"
+        android:textColor="?attr/myTextColor"
+        android:textSize="@dimen/_13sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtLastMsgDate"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="@+id/txtUserFamilyContactItem"
+        app:layout_constraintTop_toBottomOf="@+id/txtUserFamilyContactItem" />
+
+    <TextView
+        android:id="@+id/txtLastMsgDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textColor="?attr/myTextColor"
+        android:textSize="@dimen/_13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtUserFamilyContactItem" />
+
+
+    <View
+        android:id="@+id/viewLineContact"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_marginStart="@dimen/_70dp"
+        android:layout_marginLeft="@dimen/_70dp"
+        android:background="?attr/myLineColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtUserImageNameContactItem" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

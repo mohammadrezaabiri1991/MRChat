@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="chat"
+            type="com.mohammadreza.mrchat.viewmodel.ChatMainViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor">
+
+
+        <LinearLayout
+            android:id="@+id/linearHeaderChat"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_54dp"
+            android:background="?attr/myHeaderColor"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/imgNavigationChat"
+                android:layout_width="@dimen/_48dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:onClick="@{v -> chat.clickHandlerDrawer(v )}"
+                android:scaleType="centerInside"
+                android:tag="@string/tagImgNavigationChat"
+                app:srcCompat="@drawable/ic_menu" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_37dp"
+                android:layout_marginLeft="@dimen/_37dp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@{chat.connectedToServerState}"
+                android:textColor="#fff"
+                android:textSize="@dimen/_20sp" />
+
+
+        </LinearLayout>
+
+
+        <ProgressBar
+            android:id="@+id/prgLoadingMainChat"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="72dp"
+            android:visibility="@{chat.isProgressLoadMain ?view.VISIBLE : view.GONE,default=visible }" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerChatUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linearHeaderChat"
+            android:layout_marginTop="@dimen/_54dp"
+            app:onMoonClick="@{chat.onMoonClick}"
+            app:current_id="@{chat.id}"
+            app:recycler_chat="@{chat.parentLiveData}"
+            app:chat_list_live="@{chat.chatsList}"
+            app:user_status="@{chat.connectedToServerState}" />
+
+        <ImageView
+            android:id="@+id/imgNotingToShow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300dp"
+            android:layout_above="@+id/relativeMessage"
+            android:layout_below="@+id/activity_message_header_id"
+            android:layout_gravity="center"
+            android:onClick="@{v -> chat.clickHandlerFab()}"
+            android:visibility="@{chat.imgNotingMainChatVisible ?view.VISIBLE : view.GONE ,default=gone}"
+            app:srcCompat="@drawable/ic_taking" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="@string/start_conversation"
+            android:visibility="@{chat.imgNotingMainChatVisible ?view.VISIBLE : view.GONE ,default=gone}"
+            app:layout_anchor="@id/imgNotingToShow"
+            app:layout_anchorGravity="bottom" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/_16dp"
+            android:layout_marginRight="@dimen/_16dp"
+            android:layout_marginBottom="@dimen/_16dp"
+            android:onClick="@{v -> chat.clickHandlerFab()}"
+            android:tag="@string/tagFloatingChat"
+            app:backgroundTint="@color/colorPrimary"
+            app:layout_anchor="@id/recyclerChatUser"
+            app:layout_anchorGravity="bottom|right|end"
+            app:maxImageSize="@dimen/_20dp"
+            app:srcCompat="@drawable/ic_edit_new_message"
+            tools:ignore="UnusedAttribute" />
+
+
+        <LinearLayout
+            android:id="@+id/bottom_sheet_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:elevation="@dimen/_8dp"
+            android:orientation="horizontal"
+            app:bottomSheetBehaviorStateDrawer="@{200}"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

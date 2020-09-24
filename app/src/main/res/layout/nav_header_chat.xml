@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="navChat"
+            type="com.mohammadreza.mrchat.viewmodel.ChatMainViewModel" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/curved_line"
+            android:orientation="vertical"
+            android:padding="@dimen/_16dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/imgThemeChanger"
+                android:layout_width="@dimen/_48dp"
+                android:layout_height="@dimen/_48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_18dp"
+                android:layout_marginEnd="-12dp"
+                android:layout_marginRight="-12dp"
+                android:onClick="@{v -> navChat.onMoonClick(v)}"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/ic_moon" />
+
+
+            <TextView
+                android:id="@+id/txtImageNameHeaderNav"
+                android:layout_width="@dimen/_72dp"
+                android:layout_height="@dimen/_72dp"
+                android:layout_marginTop="@dimen/_28dp"
+                android:background="@drawable/round_back_light"
+                android:gravity="center"
+                android:text="@{String.valueOf(navChat.userName.charAt(0))}"
+                android:textAllCaps="true"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/_24sp" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewHeaderNav"
+                android:layout_width="@dimen/_72dp"
+                android:layout_height="@dimen/_72dp"
+                android:layout_marginTop="@dimen/_28dp"
+                android:onClick="@{v ->navChat.onImageProfileClick(v)}"
+                app:appCompat="@{navChat.appCompatActivity}"
+                app:src_chat_profile="@{navChat.smallImageUrl}"
+                app:src_chat_profile_id="@{navChat.id}" />
+
+            <ProgressBar
+                android:id="@+id/prgLoadingNavHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12dp"
+                android:layout_marginLeft="@dimen/_12dp"
+                android:layout_marginTop="@dimen/_40dp"
+                android:visibility="@{navChat.isNavProgressVisible?view.VISIBLE :view.INVISIBLE ,default =invisible}" />
+
+
+            <TextView
+                android:id="@+id/txtUserNameHeaderNav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtImageNameHeaderNav"
+                android:layout_marginStart="@dimen/_2dp"
+                android:layout_marginLeft="@dimen/_2dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:gravity="left"
+                android:text="@{navChat.userName}"
+                android:textColor="#fff"
+                android:textSize="@dimen/_16sp"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+
+
+            <TextView
+                android:id="@+id/txtPhoneNumberHeaderNav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtUserNameHeaderNav"
+                android:layout_marginStart="@dimen/_2dp"
+                android:layout_marginLeft="@dimen/_2dp"
+                android:layout_marginEnd="@dimen/_72dp"
+                android:layout_marginRight="@dimen/_72dp"
+                android:layout_marginBottom="@dimen/_32dp"
+                android:gravity="left"
+                android:singleLine="true"
+                android:text="@{navChat.id}"
+                android:textColor="#ccffffff"
+                tools:ignore="RtlHardcoded" />
+
+
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/imgSelectPhotoDrawer"
+            android:layout_width="@dimen/_60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="@dimen/_24dp"
+            android:layout_marginRight="@dimen/_16dp"
+            android:background="@drawable/nave_header_img"
+            android:onClick="@{v -> navChat.onClickNavHeaderSelectImage(v)}"
+            android:scaleType="centerInside"
+            android:tag="@string/imgSelectPhotoDrawer"
+            app:layout_constraintBottom_toBottomOf="@+id/relativeHeader"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_camera" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

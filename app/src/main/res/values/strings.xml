@@ -1,0 +1,101 @@
+<resources>
+    <string name="app_name">MRChat</string>
+    <string name="phone_number">phone number</string>
+    <string name="iranCodeNumber">+98</string>
+
+    <string name="name_necessary">your name</string>
+    <string name="optional">your family (optional)</string>
+    <string name="select_a_photo">Choose photo</string>
+    <string name="take_a_photo">Take photo</string>
+    <string name="select_from_gallery">Select from gallery</string>
+    <string name="tagCamera">tag_camera</string>
+    <string name="tagGallery">tag_gallery</string>
+    <string name="tagGotoProfile">tag_go_to_profile</string>
+    <string name="tagSelectPhoto">tag_select_photo</string>
+    <string name="no_access_to_net">"No Access To Network Check Your Connection !"</string>
+    <string name="need_permission">"Sms permission need to send verification code !"</string>
+
+
+    <string name="mr_chat">MRChat</string>
+
+
+    <!--    <string name="crop_image_activity_title"></string>-->
+    <string name="crop_image_menu_rotate_left">Rotate counter clockwise</string>
+    <string name="crop_image_menu_rotate_right">Rotate</string>
+    <string name="crop_image_menu_crop">Crop</string>
+    <string name="crop_image_menu_flip">Flip</string>
+    <string name="crop_image_menu_flip_horizontally">Flip horizontally</string>
+    <string name="crop_image_menu_flip_vertically">Flip vertically</string>
+
+
+    <string name="exit_app">Exit</string>
+    <string name="verification_code">VERIFICATION CODE</string>
+    <string name="from">from</string>
+    <string name="mohammad_reza_abiri">mohammad reza abiri</string>
+    <string name="too_many_try">Too many attempt , try after some times !</string>
+    <string name="type_a_message">Type a message ...</string>
+    <string name="btnSendMessage">btnSendMessage</string>
+    <string name="imgBackMessage">imgBackMessage</string>
+    <string name="please_type_verification_code_sent">Type verification code sent to</string>
+    <string name="stop_progress_title">"Do you want stop this progress ?"</string>
+    <string name="info">"Information"</string>
+    <string name="log_out_from_account_title">"Are you sure to logout from your account"</string>
+    <string name="enter_your_name_and_select_a_profile_picture">Enter your name and choose picture</string>
+    <string name="could_not_verify">Failed to verify your phone number, try again !</string>
+    <string name="tag_remove_photo">imgDeletePhoto_sheet_drawer</string>
+    <string name="remove_photo">Remove photo</string>
+    <string name="imgSelectPhotoDrawer">imgSelectPhotoDrawer</string>
+    <string name="tagImgNavigationChat">imgNavigationChat</string>
+    <string name="tagFloatingChat">tagFloatingChat</string>
+    <string name="waiting_for_network">Waiting for network...</string>
+    <string name="v">v</string>
+
+    <string name="new_message">New Message</string>
+    <string name="noting_to_show">No messages here yet...</string>
+    <string name="not_get_code">Not get code ?</string>
+
+    <string name="connecting_to_server">Connecting to the server...</string>
+    <string name="connecting">Connecting...</string>
+    <string name="connected_to_server">Connected to the server</string>
+    <string name="welcome">Welcome</string>
+    <string name="resendCode">Resend code</string>
+    <string name="secondUntil">   Seconds until resend</string>
+    <string name="online">Online</string>
+    <string name="reserService">RestartService</string>
+    <string name="log_out">Log Out</string>
+    <string name="contacts">Contacts</string>
+    <string name="invite_friends">Invite Friends</string>
+    <string name="faq">FAQ</string>
+    <string name="support">Support</string>
+    <string name="start_conversation">Start an enjoyable conversation !</string>
+    <string name="mrID">+989357764384</string>
+    <string name="last_seen_mr">last seen recently</string>
+    <string name="invite_text">سلام من از برنامه MRChat برای ارسال پیام استفاده میکنم ، تو هم میتونی به من ملحق بشی !</string>
+    <string name="data1">data1</string>
+    <string name="sms_to">smsto:</string>
+    <string name="sms_body">sms_body</string>
+    <string name="iran_sans">iran_sans.ttf</string>
+    <string name="small">small</string>
+    <string name="original">original</string>
+    <string name="provider">com.mohammadreza.mrchat.fileprovider</string>
+    <string name="theme">GET_THEME</string>
+    <string name="isThemeChange">isThemeChange</string>
+    <string name="str_last_seen_today">last seen today at</string>
+    <string name="str_seen_yesterday">last seen yesterday at</string>
+    <string name="str_msg_yesterday">yesterday</string>
+    <string name="str_last_seen">last seen</string>
+    <string name="date_format_day">HH:mm</string>
+    <string name="date_format_month_day">d-MMM HH:mm</string>
+    <string name="date_format_day_of_week">EEE</string>
+    <string name="date_format_month">d-MMM</string>
+    <string name="str_long_time">last seen long time ago !</string>
+    <string name="drats">Message Saved On Drafts</string>
+    <string name="noMessages">No Messages</string>
+    <string name="not_sender">sender</string>
+    <string name="not_message">message</string>
+    <string name="not_messageId">messageId</string>
+    <string name="error_too_many_att">We have blocked all requests from this device due to unusual activity. Try again later.</string>
+    <string name="is_typing">Typing...</string>
+    <string name="just_now">just now</string>
+
+</resources>

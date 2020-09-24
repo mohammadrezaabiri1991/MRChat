@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemSelected"
+            type="android.widget.AdapterView.OnItemSelectedListener" />
+
+        <variable
+            name="phone"
+            type="com.mohammadreza.mrchat.viewmodel.PhoneViewModel" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:focusableInTouchMode="true">
+
+
+        <ImageView
+            android:id="@+id/imgCurve"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/curved_line" />
+
+
+        <ImageView
+            android:id="@+id/imgMobile"
+            android:layout_width="@dimen/_120dp"
+            android:layout_height="@dimen/_120dp"
+            android:elevation="@dimen/_8dp"
+            android:foregroundGravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/imgCurve"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_mr_chat" />
+
+        <TextView
+            android:id="@+id/txtWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_54dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_16dp"
+            android:gravity="center_vertical"
+            android:text="@string/welcome"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgCurve" />
+
+
+        <TextView
+            android:id="@+id/txtCountryCode"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_48dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_32dp"
+            android:layout_marginLeft="@dimen/_32dp"
+            android:layout_marginTop="@dimen/_40dp"
+            android:gravity="center_vertical"
+            android:paddingBottom="@dimen/_3dp"
+            android:text="@string/iranCodeNumber"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_16sp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtWelcome"
+            app:layout_goneMarginStart="@dimen/_32dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_48dp"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginLeft="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_32dp"
+            android:layout_marginEnd="@dimen/_32dp"
+            android:layout_marginRight="@dimen/_32dp"
+            android:hint="@string/phone_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintRight_toLeftOf="@+id/txtCountryCode"
+            app:layout_constraintStart_toEndOf="@+id/txtCountryCode"
+            app:layout_constraintTop_toBottomOf="@+id/txtWelcome">
+
+
+            <EditText
+                android:id="@+id/edtNumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edt_back_selector"
+                android:inputType="number"
+                android:letterSpacing="0.2"
+                android:maxLength="10"
+                android:singleLine="true"
+                android:tag="edtNumber"
+                android:text="@={phone.phoneNumber}"
+                android:textColor="@color/colorText"
+                android:textColorHint="@color/colorHint"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:textSize="@dimen/_16sp"
+
+                tools:ignore="UnusedAttribute" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/txtNetStatePhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_32dp"
+            android:layout_marginLeft="@dimen/_32dp"
+            android:layout_marginBottom="@dimen/_40dp"
+            android:text="@{phone.txtNetStatePhone}"
+            android:textColor="@color/colorHint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <RelativeLayout
+            android:id="@+id/relativeNextPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_32dp"
+            android:background="@drawable/round_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+            <com.budiyev.android.circularprogressbar.CircularProgressBar
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="@dimen/_24dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                app:animateProgress="true"
+                app:backgroundStrokeWidth="3dp"
+                app:drawBackgroundStroke="false"
+                app:foregroundStrokeCap="butt"
+                app:foregroundStrokeColor="@color/colorWhite"
+                app:foregroundStrokeWidth="3dp"
+                app:indeterminate="true"
+                app:indeterminateMinimumAngle="50"
+                app:indeterminateRotationAnimationDuration="500"
+                app:indeterminateSweepAnimationDuration="500"
+                app:maximum="360"
+                app:progress="310"
+                app:progressAnimationDuration="10"
+                app:startAngle="320" />
+
+
+            <ImageButton
+                android:id="@+id/btnSendCodePhone"
+                android:layout_width="@dimen/_48dp"
+                android:layout_height="@dimen/_48dp"
+                android:background="@drawable/round_back"
+                android:onClick="@{v -> phone.onClickBtnPhone(v , textInputLayout)}"
+                android:tag="btnVerify"
+                app:srcCompat="@drawable/ic_arrow_right" />
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

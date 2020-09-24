@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="message"
+            type="com.mohammadreza.mrchat.viewmodel.MessageViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/linearMessageFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edt_send_message"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_16sp"
+        android:paddingLeft="@dimen/_16sp"
+       >
+
+        <EditText
+            android:id="@+id/edtEnterMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00ffffff"
+            android:hint="@string/type_a_message"
+            android:lineSpacingExtra="@dimen/_5dp"
+            android:maxHeight="@dimen/_200dp"
+            android:minHeight="@dimen/_54dp"
+            android:text="@={message.txtMessage}"
+            android:textColor="?attr/myTextColor"
+            android:textColorHint="?myHintColor"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:textSize="@dimen/_16sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgSendMessage"
+            android:layout_width="@dimen/_48dp"
+            android:layout_height="@dimen/_54dp"
+            android:layout_gravity="bottom"
+            android:onClick="@{v -> message.onClickHandlerMessage(v)}"
+            android:scaleType="centerInside"
+            android:tag="@string/btnSendMessage"
+            app:srcCompat="@drawable/ic_send_message_off"
+
+            />
+
+    </LinearLayout>
+
+
+</layout>

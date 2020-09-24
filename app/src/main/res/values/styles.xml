@@ -1,0 +1,154 @@
+<resources>
+
+    <!-- Base application LIGHT theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="fontFamily">@font/iran_sans</item>
+        <item name="android:textColorSecondary">@color/colorTextDark</item>
+
+<!--        <item name="android:windowIsTranslucent">true</item> // for oreo-->
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:textDirection">locale</item>
+
+
+        <item name="backgroundColor">@color/colorBackground</item>
+        <item name="myBackgroundColorSheet">@color/colorBackground</item>
+        <item name="drawerBackgroundColor">#fff</item>
+        <item name="myHeaderColor">@color/colorPrimary</item>
+        <item name="myFooterColor">@color/colorWhite</item>
+        <item name="myCurvedColor">@color/colorPrimary</item>
+        <item name="myTextColor">@color/colorText</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="myItemTextColor">#ef555555</item>
+        <item name="myDrawerIconColor">@color/drawerIconColor</item>
+        <item name="drawerTextColor">@color/colorText</item>
+        <item name="myIconsColor">@color/colorWhite</item>
+        <item name="mySheetTextColor">@color/colorTextDark</item>
+        <item name="myLineColor">#ccc</item>
+
+    </style>
+
+    <!-- Base application DARK theme. -->
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/darkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="fontFamily">@font/iran_sans</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="android:textColorSecondary">@color/colorWhite</item>
+
+<!--        <item name="android:windowIsTranslucent">true</item> // for oreo-->
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:textDirection">locale</item>
+
+        <item name="backgroundColor">@color/darkColorAccent</item>
+        <item name="myBackgroundColorSheet">@color/darkColorPrimaryDark</item>
+        <item name="drawerBackgroundColor">@color/darkColorAccent</item>
+        <item name="myHeaderColor">@color/darkColorH_F</item>
+        <item name="myFooterColor">@color/darkColorH_F</item>
+        <item name="myCurvedColor">@color/darkColorCurved</item>
+        <item name="myTextColor">@color/drawerIconTextColor</item>
+        <item name="android:textColor">@color/drawerIconTextColor</item>
+        <item name="myItemTextColor">@color/drawerIconTextColor</item>
+        <item name="myDrawerIconColor">@color/drawerIconTextColor</item>
+        <item name="drawerTextColor">@color/drawerIconTextColor</item>
+        <item name="myIconsColor">@color/colorPrimary</item>
+        <item name="mySheetTextColor">@color/colorWhite</item>
+        <item name="myLineColor">@color/darkColorLine</item>
+
+
+    </style>
+
+    <style name="ToolbarStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorWhite</item>
+
+    </style>
+
+
+    <style name="EditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/colorBackground</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+
+    <!--                        SLIDER LIGHT-->
+    <style name="AppTheme.SliderActivityThemeLight">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/colorTransparent</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:textDirection">locale</item>
+
+        <item name="backgroundColor">@color/colorBackground</item>
+        <item name="myHeaderColor">@color/colorPrimary</item>
+        <item name="myTextColor">@color/colorText</item>
+        <item name="myTextColorLight">@color/colorTextLight</item>
+        <item name="myHintColor">@color/colorHint</item>
+        <item name="myFooterColor">@color/colorWhite</item>
+        <item name="myLineColor">@color/colorLineLight</item>
+        <item name="myReceiverMessageColor">#fff</item>
+        <item name="myChatColor">@color/chatLightColor</item>
+        <item name="myEdtSendMessage">#ddd</item>
+
+
+    </style>
+
+    <!--                          SLIDER DARK -->
+    <style name="AppTheme.SliderActivityThemeDark">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+        <item name="colorPrimary">@color/darkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:textDirection">locale</item>
+
+
+        <item name="backgroundColor">@color/darkColorAccent</item>
+        <item name="myHeaderColor">@color/darkColorH_F</item>
+        <item name="myTextColor">@color/drawerIconTextColor</item>
+        <item name="myTextColorLight">@color/colorTextDarker</item>
+        <item name="myHintColor">#99B8CD</item>
+        <item name="myFooterColor">@color/darkColorH_F</item>
+        <item name="myLineColor">@color/colorLineDark</item>
+        <item name="myReceiverMessageColor">@color/darkColorH_F</item>
+        <item name="myChatColor">@color/chatDarkColor</item>
+        <item name="myEdtSendMessage">@color/darkColorAccent</item>
+    </style>
+
+
+    <style name="NavigationDrawerStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:divider">?attr/myTextColor</item>
+        <item name="fontFamily">@font/iransans_bold</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+
+    <style name="MyCustomTheme" parent="@android:style/Theme.Panel">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_round</item>
+    </style>
+
+</resources>

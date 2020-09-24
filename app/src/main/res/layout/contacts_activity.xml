@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="contacts"
+            type="com.mohammadreza.mrchat.viewmodel.ContactsViewModel" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor">
+
+
+        <LinearLayout
+            android:id="@+id/linearHeaderChat"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_54dp"
+            android:layout_alignParentTop="true"
+            android:background="?attr/myHeaderColor"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/btnBackContacts"
+                android:layout_width="@dimen/_48dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:onClick="@{v -> contacts.onClickBachContacts()}"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/ic_arrow_left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_37dp"
+                android:layout_marginLeft="@dimen/_37dp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@{contacts.netStateContacts}"
+                android:textColor="#fff"
+                android:textSize="@dimen/_20sp" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/prgLoadingMainChat"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:layout_centerInParent="true"
+            android:visibility="@{contacts.progressLoadContact ?view.VISIBLE : view.GONE ,default=visible}" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerContacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/linearHeaderChat"
+            app:appCompatActivity="@{contacts.appCompatActivity}"
+            app:currentId="@{contacts.currentUserId}"
+            app:net_state="@{contacts.netStateContacts}"
+            app:recycler_chat_user="@{contacts.contactsUserModelLiveData}" />
+    </RelativeLayout>
+</layout>

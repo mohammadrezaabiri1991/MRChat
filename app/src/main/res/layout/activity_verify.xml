@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="verify"
+            type="com.mohammadreza.mrchat.viewmodel.VerifyViewModel" />
+
+        <variable
+            name="view"
+            type="android.view.View" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+
+        <ImageView
+            android:id="@+id/imgCurve"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/curved_line" />
+
+        <ImageView
+            android:id="@+id/imgBackVerify"
+            android:layout_width="@dimen/_48dp"
+            android:layout_height="@dimen/_48dp"
+            android:layout_marginStart="@dimen/_16sp"
+            android:layout_marginLeft="@dimen/_16sp"
+            android:layout_marginTop="@dimen/_16sp"
+            android:onClick="@{v ->verify.onClickBack(v)}"
+            android:scaleType="centerInside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_left" />
+
+        <com.budiyev.android.circularprogressbar.CircularProgressBar
+            android:id="@+id/prgVerify"
+            android:layout_width="@dimen/_22dp"
+            android:layout_height="@dimen/_22dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_32dp"
+            android:layout_marginEnd="@dimen/_16sp"
+            android:layout_marginRight="@dimen/_16sp"
+            android:visibility="@{verify.progressVerifyVisible ? view.VISIBLE : view.GONE , default = gone }"
+            app:animateProgress="true"
+            app:backgroundStrokeWidth="2dp"
+            app:drawBackgroundStroke="false"
+            app:foregroundStrokeCap="butt"
+            app:foregroundStrokeColor="@color/colorWhite"
+            app:foregroundStrokeWidth="2dp"
+            app:indeterminate="true"
+            app:indeterminateMinimumAngle="50"
+            app:indeterminateRotationAnimationDuration="500"
+            app:indeterminateSweepAnimationDuration="500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:maximum="360"
+            app:progress="310"
+            app:progressAnimationDuration="10"
+            app:startAngle="320" />
+
+
+        <TextView
+            android:id="@+id/txtVerifyCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginLeft="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_32dp"
+            android:layout_marginEnd="@dimen/_16dp"
+            android:layout_marginRight="@dimen/_16dp"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="@string/verification_code"
+            android:textColor="#fff"
+            android:textSize="@dimen/_22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgBackVerify"
+
+            />
+
+
+        <TextView
+            android:id="@+id/txtPleaseEnter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sp"
+            android:gravity="center_horizontal"
+            android:text="@string/please_type_verification_code_sent"
+            android:textColor="@color/colorText"
+            app:layout_constraintTop_toBottomOf="@+id/imgCurve" />
+
+
+        <LinearLayout
+            android:id="@+id/linearChangeNumberVerify"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="@dimen/_32dp"
+            android:layout_marginLeft="@dimen/_32dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:layout_marginEnd="@dimen/_32dp"
+            android:layout_marginRight="@dimen/_32dp"
+            android:background="@drawable/round_back_very_light"
+            android:onClick="@{v -> verify.onClickLinearChangeNumber()}"
+            android:paddingStart="@dimen/_16dp"
+            android:paddingLeft="@dimen/_16dp"
+            android:paddingEnd="@dimen/_16dp"
+            android:paddingRight="@dimen/_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPleaseEnter">
+
+            <TextView
+                android:id="@+id/txtNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@{verify.codeAndPhoneNumber}"
+                android:textColor="@color/colorPrimary" />
+
+            <ImageView
+                android:id="@+id/imgEditNumber"
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginLeft="@dimen/_8dp"
+                app:srcCompat="@drawable/ic_edit_phone" />
+
+        </LinearLayout>
+
+
+        <com.jkb.vcedittext.VerificationCodeEditText
+            android:id="@+id/edtVerificationCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32dp"
+            android:layout_marginLeft="@dimen/_32dp"
+            android:layout_marginTop="@dimen/_12dp"
+            android:layout_marginEnd="@dimen/_32dp"
+            android:layout_marginRight="@dimen/_32dp"
+            android:inputType="number"
+            android:text="@={verify.strEditTextVerifyCode}"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_17sp"
+            android:textStyle="bold"
+            app:bottomLineHeight="1dp"
+            app:bottomLineNormalColor="@color/colorText"
+            app:bottomLineSelectedColor="@color/colorPrimary"
+            app:figures="6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearChangeNumberVerify"
+            app:selectedBackgroundColor="@color/colorTransparent"
+            app:verCodeMargin="10dp" />
+        <!--        app:textListener="@{verify.textListenerCountry}"-->
+
+        <TextView
+            android:id="@+id/txtNotGetCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32dp"
+            android:layout_marginLeft="@dimen/_32dp"
+            android:layout_marginTop="@dimen/_32dp"
+            android:text="@string/not_get_code"
+            app:layout_constraintEnd_toStartOf="@+id/txtResendCode"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtVerificationCode" />
+
+
+        <TextView
+            android:id="@+id/txtResendCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginLeft="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_32dp"
+            android:layout_marginEnd="@dimen/_32dp"
+            android:layout_marginRight="@dimen/_32dp"
+            android:clickable="@{verify.isCountDownFinish ? true : false}"
+            android:onClick="@{verify.onClickResendCode}"
+            android:text="@{verify.txtResendCodeCountDown}"
+            android:textColor="@{verify.isCountDownFinish ? @color/colorPrimary : @color/colorText}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/txtNotGetCode"
+            app:layout_constraintTop_toBottomOf="@+id/edtVerificationCode" />
+
+        <TextView
+            android:id="@+id/txtNetStateVerify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_32dp"
+            android:layout_marginLeft="@dimen/_32dp"
+            android:layout_marginBottom="@dimen/_40dp"
+            android:text="@{verify.strTxtNetStateVerify}"
+            android:textColor="@color/colorHint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="sheetDrawer"
+            type="com.mohammadreza.mrchat.viewmodel.ChatMainViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintDrawerSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_16dp"
+        android:textColor="?attr/backgroundColor">
+
+
+        <TextView
+            android:id="@+id/txtSelectPhotoSheetDrawer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_a_photo"
+            android:textColor="?attr/mySheetTextColor"
+            android:textSize="@dimen/_22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgCameraSheetDrawer"
+            android:layout_width="@dimen/_22dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:onClick="@{v -> sheetDrawer.onClickNavHeaderSelectImage(v)}"
+            android:tag="@string/tagCamera"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSelectPhotoSheetDrawer"
+            app:srcCompat="@drawable/ic_camera" />
+
+        <TextView
+            android:id="@+id/txtCameraSheetDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:gravity="center_vertical"
+            android:onClick="@{v -> sheetDrawer.onClickNavHeaderSelectImage(v)}"
+            android:scaleType="centerInside"
+            android:tag="@string/tagCamera"
+            android:text="@string/take_a_photo"
+            android:textColor="?attr/mySheetTextColor"
+            android:textSize="@dimen/_16sp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/imgCameraSheetDrawer"
+            app:layout_constraintTop_toBottomOf="@+id/txtSelectPhotoSheetDrawer" />
+
+
+        <ImageView
+            android:id="@+id/imgGallerySheetDrawer"
+            android:layout_width="@dimen/_24dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:onClick="@{v -> sheetDrawer.onClickNavHeaderSelectImage(v)}"
+            android:tag="@string/tagGallery"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgCameraSheetDrawer"
+            app:srcCompat="@drawable/ic_gallery" />
+
+        <TextView
+            android:id="@+id/txtGallerySheetDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:gravity="center_vertical"
+            android:onClick="@{v -> sheetDrawer.onClickNavHeaderSelectImage(v)}"
+            android:tag="@string/tagGallery"
+            android:text="@string/select_from_gallery"
+            android:textColor="?attr/mySheetTextColor"
+            android:textSize="@dimen/_16sp"
+            app:layout_constraintStart_toEndOf="@+id/imgGallerySheetDrawer"
+            app:layout_constraintTop_toBottomOf="@+id/txtCameraSheetDrawer" />
+
+        <ImageView
+            android:id="@+id/imgRemovePhotoSheetDrawer"
+            android:layout_width="@dimen/_24dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:onClick="@{v -> sheetDrawer.onClickNavHeaderSelectImage(v)}"
+            android:scaleType="centerInside"
+            android:tag="@string/tag_remove_photo"
+            android:visibility="@{sheetDrawer.isBottomSheetRemoveVisible}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgGallerySheetDrawer"
+            app:srcCompat="@drawable/ic_trash" />
+
+        <TextView
+            android:id="@+id/txtRemovePhotoSheetDrawer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:gravity="center_vertical"
+            android:onClick="@{v -> sheetDrawer.onClickNavHeaderSelectImage(v)}"
+            android:tag="@string/tag_remove_photo"
+            android:text="@string/remove_photo"
+            android:textColor="?attr/mySheetTextColor"
+            android:textSize="@dimen/_16sp"
+            android:visibility="@{sheetDrawer.isBottomSheetRemoveVisible}"
+            app:layout_constraintStart_toEndOf="@+id/imgRemovePhotoSheetDrawer"
+            app:layout_constraintTop_toBottomOf="@+id/txtGallerySheetDrawer" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

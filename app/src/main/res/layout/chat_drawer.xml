@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="chat"
+            type="com.mohammadreza.mrchat.viewmodel.ChatMainViewModel" />
+    </data>
+
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout_chat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="left">
+
+        <include
+            android:id="@+id/activity_chat_content"
+            layout="@layout/chat_main_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bind:chat="@{chat}" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:itemIconTint="?attr/myDrawerIconColor"
+            app:itemTextColor="?attr/drawerTextColor"
+            android:background="?attr/drawerBackgroundColor"
+            android:layout_gravity="left"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_chat"
+            app:itemTextAppearance="@style/NavigationDrawerStyle"
+            app:menu="@menu/drawer_menu"
+            tools:ignore="MissingClass,RtlHardcoded" />
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+</layout>

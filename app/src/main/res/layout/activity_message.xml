@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="message"
+            type="com.mohammadreza.mrchat.viewmodel.MessageViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintMessage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_light_back">
+
+
+        <include
+            android:id="@+id/activity_message_header_id"
+            layout="@layout/activity_message_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:message="@{message}" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMessage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/_54dp"
+            android:layout_marginBottom="@dimen/_54dp"
+            android:fastScrollEnabled="true"
+            android:paddingTop="@dimen/_4dp"
+            android:paddingBottom="@dimen/_4dp"
+            app:appCompatActivity="@{message.getAppCompatActivity}"
+            app:my_service="@{message.myService}"
+            app:layout_constraintBottom_toTopOf="@+id/activity_message_footer_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_message_header_id"
+            app:recycler_message="@{message.messageLiveData}"
+            app:sender_id="@{message.currentUserId}" />
+
+
+        <ProgressBar
+            android:id="@+id/prgLoadingMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{message.progressLoadMessage ?view.GONE : view.GONE,default=visible}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_message_header_id" />
+
+        <TextView
+            android:id="@+id/txtNotingToShow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/noting_to_show"
+            android:textColor="?attr/myTextColor"
+            android:visibility="@{message.isTxtNotingMainChatVisibleMessage ?view.GONE :view.GONE,default=gone}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16sp"
+            android:layout_marginRight="@dimen/_16dp"
+            android:layout_marginBottom="@dimen/_16sp"
+            android:onClick="@{v -> message.onFabMessageClick(recyclerMessage)}"
+            app:backgroundTint="?attr/myFooterColor"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@+id/activity_message_footer_id"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:maxImageSize="@dimen/_16dp"
+            app:srcCompat="@drawable/ic_arrow_down" />
+
+        <include
+            android:id="@+id/activity_message_footer_id"
+            layout="@layout/activity_message_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:message="@{message}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

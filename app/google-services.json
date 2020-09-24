@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1001830424241",
+    "firebase_url": "https://mrchat-2b997.firebaseio.com",
+    "project_id": "mrchat-2b997",
+    "storage_bucket": "mrchat-2b997.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001830424241:android:9d55a8d4b8b7c2eced0c90",
+        "android_client_info": {
+          "package_name": "com.mohammadreza.mrchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001830424241-01gafjsdomt7lrl6hsg6gv99jdl7nkge.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mohammadreza.mrchat",
+            "certificate_hash": "c3b18966b2cf99b318248d114f2a20556bbe0639"
+          }
+        },
+        {
+          "client_id": "1001830424241-j728eptgfdactm6dhr15o7er6jkc1q39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-VYBCa1oEXc0Var8kdMqSx7-YbGtkjYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001830424241-j728eptgfdactm6dhr15o7er6jkc1q39.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

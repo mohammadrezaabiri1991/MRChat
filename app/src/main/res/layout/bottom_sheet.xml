@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="bottomSheet"
+            type="com.mohammadreza.mrchat.viewmodel.CreateProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bottom_sheet_round"
+        android:padding="@dimen/_16dp">
+
+
+        <TextView
+            android:id="@+id/txtSelectPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_a_photo"
+            android:textColor="#555"
+            android:textSize="@dimen/_22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgCamera"
+            android:layout_width="@dimen/_20dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="@dimen/_2dp"
+            android:layout_marginLeft="@dimen/_2dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:onClick="@{v -> bottomSheet.onClickHandlerCreateProfile(v)}"
+            android:tag="@string/tagCamera"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSelectPhoto"
+            app:srcCompat="@drawable/ic_camera" />
+
+        <TextView
+            android:id="@+id/txtCamera"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:gravity="center_vertical"
+            android:onClick="@{v -> bottomSheet.onClickHandlerCreateProfile(v)}"
+            android:tag="@string/tagCamera"
+            android:text="@string/take_a_photo"
+            android:textColor="@color/colorText"
+            android:textSize="@dimen/_16sp"
+
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/imgCamera"
+            app:layout_constraintTop_toBottomOf="@+id/txtSelectPhoto" />
+
+
+        <ImageView
+            android:id="@+id/imgGallery"
+            android:layout_width="@dimen/_24dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:onClick="@{v -> bottomSheet.onClickHandlerCreateProfile(v)}"
+            android:tag="@string/tagGallery"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgCamera"
+            app:srcCompat="@drawable/ic_gallery" />
+
+        <TextView
+            android:id="@+id/txtGallery"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="@dimen/_16dp"
+            android:gravity="center_vertical"
+            android:onClick="@{v -> bottomSheet.onClickHandlerCreateProfile(v)}"
+            android:paddingEnd="@dimen/_32dp"
+            android:paddingRight="@dimen/_32dp"
+            android:tag="@string/tagGallery"
+            android:text="@string/select_from_gallery"
+            android:textSize="@dimen/_16sp"
+            app:layout_constraintStart_toEndOf="@+id/imgGallery"
+            app:layout_constraintTop_toBottomOf="@+id/txtCamera" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

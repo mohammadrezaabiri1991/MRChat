@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="view"
+            type="android.view.View" />
+
+        <variable
+            name="message"
+            type="com.mohammadreza.mrchat.viewmodel.MessageViewModel" />
+    </data>
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/linearHeaderMessage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_54dp"
+        android:background="?attr/myHeaderColor">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarMessage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_54dp"
+            android:background="?attr/myHeaderColor"
+            android:theme="@style/ToolbarStyle"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_54dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:layout_marginRight="@dimen/_16dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imgBackMessage"
+                    android:layout_width="@dimen/_48dp"
+                    android:layout_height="match_parent"
+                    android:onClick="@{v -> message.onClickHandlerMessage(v)}"
+                    android:scaleType="centerInside"
+                    android:tag="@string/imgBackMessage"
+                    app:srcCompat="@drawable/ic_arrow_left" />
+
+
+                <TextView
+                    android:id="@+id/txtUserImageNameContactItem"
+                    android:layout_width="@dimen/_42dp"
+                    android:layout_height="@dimen/_42dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_12dp"
+                    android:layout_marginLeft="@dimen/_12dp"
+                    android:layout_toEndOf="@+id/imgBackMessage"
+                    android:layout_toRightOf="@+id/imgBackMessage"
+                    android:background="@drawable/round_back_light"
+                    android:gravity="center"
+                    android:text="@{String.valueOf(message.friendUserName.charAt(0))}"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/_20sp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgUserProfileMessage"
+                    android:layout_width="@dimen/_42dp"
+                    android:layout_height="@dimen/_42dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_12dp"
+                    android:layout_marginLeft="@dimen/_12dp"
+                    android:layout_toEndOf="@+id/imgBackMessage"
+                    android:layout_toRightOf="@+id/imgBackMessage"
+                    android:onClick="@{v ->message.OnFriendImgClick(v)}"
+                    app:friendId="@{message.friendId}"
+                    app:appCompatActivity="@{message.appCompatActivity}"
+                    app:friendUrl="@{message.friendImageSmallUrl}" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_4dp"
+                    android:layout_toEndOf="@+id/imgUserProfileMessage"
+                    android:layout_toRightOf="@+id/imgUserProfileMessage"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtUserNameMessage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_20dp"
+                        android:layout_marginStart="@dimen/_8dp"
+                        android:layout_marginLeft="@dimen/_8dp"
+                        android:gravity="start"
+                        android:singleLine="true"
+                        android:text="@{message.friendUserName}"
+                        android:textColor="#fff"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/txtIsOnlineMessage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_20dp"
+                        android:layout_marginStart="@dimen/_8dp"
+                        android:layout_marginLeft="@dimen/_8dp"
+                        android:gravity="start"
+                        android:singleLine="true"
+                        android:text="@{message.setNetStateMessage}"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/_13sp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</layout>

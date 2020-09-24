@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0095FF</color>
+    <color name="colorAccent">#0095FF</color>
+    <color name="colorPrimaryDark">#22a5FF</color>
+    <color name="colorAccentDark">#C3E6FF</color>
+
+
+    <color name="darkColorPrimary">#002033</color>
+    <color name="darkColorAccent">#002033</color>
+    <color name="darkColorPrimaryDark">#003043</color>
+    <color name="darkColorH_F">#002D44</color>
+    <color name="darkColorCurved">#002C47</color>
+    <color name="drawerIconColor">#7C8896</color>
+    <color name="drawerIconTextColor">#FAFDFF</color>
+    <color name="colorTextDarker">#0E587E</color>
+
+    <color name="colorLineLight">#bbb</color>
+    <color name="colorLineDark">#FF00121B</color>
+    <color name="chatLightColor">#2280CFFF</color>
+    <color name="chatDarkColor">#0780CFFF</color>
+    <color name="darkColorLine">#FF000C13</color>
+
+    <color name="colorTextLight">#aaa</color>
+    <color name="colorText">#ef656565</color>
+    <color name="colorTextDark">#ef4D4D4D</color>
+    <color name="colorArrowDark">#aaa</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorHint">#efaaaaaa</color>
+    <color name="colorBackground">#f1f1f1</color>
+
+    <color name="colorNoNet">#a33</color>
+    <color name="colorConnecting">#dd9900</color>
+    <color name="colorConnected">#FF2C832C</color>
+
+
+    <color name="colorTransparent">#00ffffff</color>
+    <color name="colorError">#ee4444</color>
+    <color name="ic_launcher_background">#007AD5</color>
+
+</resources>

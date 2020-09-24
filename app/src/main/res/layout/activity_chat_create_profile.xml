@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="createProfile"
+            type="com.mohammadreza.mrchat.viewmodel.CreateProfileViewModel" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgBackCreateProfile"
+                android:layout_width="@dimen/_48dp"
+                android:layout_height="@dimen/_48dp"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_marginLeft="@dimen/_16dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:onClick="@{v ->createProfile.onClickBackCreateProfile()}"
+                android:scaleType="centerInside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrow_left_dark_back" />
+
+            <TextView
+                android:id="@+id/txtChooseNameProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_marginLeft="@dimen/_16dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:layout_marginRight="@dimen/_16dp"
+                android:gravity="center"
+                android:text="@string/enter_your_name_and_select_a_profile_picture"
+                android:textSize="@dimen/_17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgBackCreateProfile" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgChoosePicture"
+                android:layout_width="@dimen/_72dp"
+                android:layout_height="@dimen/_72dp"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginLeft="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_16dp"
+                android:background="@drawable/round_back"
+                android:enabled="@{createProfile.isConstraintClickable}"
+                android:onClick="@{v -> createProfile.onClickHandlerCreateProfile(v)}"
+                android:padding="@dimen/_1dp"
+                android:tag="@string/tagSelectPhoto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtChooseNameProfile" />
+
+            <ImageView
+                android:layout_width="@dimen/_24dp"
+                android:layout_height="@dimen/_72dp"
+                android:layout_marginStart="@dimen/_8dp"
+                android:layout_marginLeft="@dimen/_8dp"
+                android:layout_marginTop="@dimen/_20dp"
+                android:enabled="@{createProfile.isConstraintClickable}"
+                android:onClick="@{v -> createProfile.onClickHandlerCreateProfile(v)}"
+                android:scaleType="centerInside"
+                android:tag="@string/tagSelectPhoto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtChooseNameProfile"
+                app:srcCompat="@drawable/ic_camera_plus" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutName"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_48dp"
+                android:layout_marginStart="@dimen/_32dp"
+                android:layout_marginLeft="@dimen/_32dp"
+                android:layout_marginTop="@dimen/_24dp"
+                android:layout_marginEnd="@dimen/_32dp"
+                android:layout_marginRight="@dimen/_32dp"
+                android:hint="@string/name_necessary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgChoosePicture">
+
+
+                <EditText
+                    android:id="@+id/edtNameProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edt_back_selector"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    android:tag="edtNumber"
+                    android:text="@={createProfile.userName}"
+                    android:textColor="@color/colorText"
+                    android:textColorHint="@color/colorHint"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/_16sp"
+                    android:theme="@style/EditTextTheme"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_layoutFamily"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_48dp"
+                android:layout_marginStart="@dimen/_32dp"
+                android:layout_marginLeft="@dimen/_32dp"
+                android:layout_marginTop="@dimen/_32dp"
+                android:layout_marginEnd="@dimen/_32dp"
+                android:layout_marginRight="@dimen/_32dp"
+                android:hint="@string/optional"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutName">
+
+
+                <EditText
+                    android:id="@+id/edtFamilyProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edt_back_selector"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    android:text="@={createProfile.family}"
+                    android:textColor="@color/colorText"
+                    android:textColorHint="@color/colorHint"
+                    android:textCursorDrawable="@drawable/color_cursor"
+                    android:textSize="@dimen/_16sp"
+                    android:theme="@style/EditTextTheme" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/txtNetStateCreatePro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_32dp"
+                android:layout_marginLeft="@dimen/_32dp"
+                android:layout_marginBottom="@dimen/_40dp"
+                android:text="@{createProfile.strTxtNetStateProfile}"
+                android:textColor="@color/colorHint"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_32dp"
+                android:background="@drawable/round_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+
+                <com.budiyev.android.circularprogressbar.CircularProgressBar
+                    android:id="@+id/prgLoadingCreateProfile"
+                    android:layout_width="@dimen/_24dp"
+                    android:layout_height="@dimen/_24dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    app:animateProgress="true"
+                    app:backgroundStrokeWidth="3dp"
+                    app:drawBackgroundStroke="false"
+                    app:foregroundStrokeCap="butt"
+                    app:foregroundStrokeColor="@color/colorWhite"
+                    app:foregroundStrokeWidth="3dp"
+                    app:indeterminate="true"
+                    app:indeterminateMinimumAngle="50"
+                    app:indeterminateRotationAnimationDuration="500"
+                    app:indeterminateSweepAnimationDuration="500"
+                    app:maximum="360"
+                    app:progress="310"
+                    app:progressAnimationDuration="10"
+                    app:startAngle="320" />
+
+                <ImageButton
+                    android:id="@+id/imGoToProfile"
+                    android:layout_width="@dimen/_48dp"
+                    android:layout_height="@dimen/_48dp"
+                    android:background="@drawable/round_back"
+                    android:onClick="@{v -> createProfile.onClickHandlerCreateProfile(v)}"
+                    android:tag="@string/tagGotoProfile"
+                    app:srcCompat="@drawable/ic_arrow_right" />
+
+
+            </RelativeLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <LinearLayout
+            android:id="@+id/bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:elevation="@dimen/_8dp"
+            android:orientation="horizontal"
+            app:bottomSheetBehaviorState="@{200}"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
